@@ -1,32 +1,213 @@
-.App {
-  text-align: center;
+body{
+  background: #111
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.App{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Main {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.Choose{
+  width: 100vw;
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: -webkit-fill-available;
+}
+
+.header{
+  font-size: 3rem;
+  font-weight: 800;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.posterArray{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.posterCard{
+  position: relative;
+  margin-bottom: 2%;
+  filter: drop-shadow(0 5px 10px #000)
+}
+
+.posterCard-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.8rem;
+  width: -webkit-fill-available;
+  height: 100%;
+  box-sizing: border-box;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.8));
+}
+
+.posterCard-overlay-top{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 0.5;
+}
+
+.posterCard-overlay-bottom{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  align-items: flex-end;
+  color: white;
+  font-size: 0.7rem
+}
+
+.trailerContainer{
+  min-height: 60vh;
+  width: 100%;
+  margin-bottom: 2%;
+  display: flex;
+}
+
+.trailerContainer-left{
+  flex: 0.6;
+  margin-right: 1rem;
+  background-color: #111;
+  display: flex;
+}
+
+.trailerContainer-right{
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8)
+}
+
+.trailerContainer-right p{
+  margin: 0;
+  margin-top: 0.5rem
+}
+
+.trailerContainer-right-title{
+  margin: 0;
+  padding: 0
+}
+
+.genre{
+  padding: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  margin-right: 0.5rem
+}
+
+.genreArr{
+  display: flex;
+  margin-top: 0.5rem
+}
+
+.trailerContainer-right-footer{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.youtube-player{
+  border: 0;
+  width: 100%;
+  align-self: center;
+  height: 100%;
+}
+
+.actionCircles{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.onHoverPointer:hover{
+  cursor: pointer;
+}
+
+.displayFlex{
+  display: flex
+}
+
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  align-items: center;
+  justify-content: center;
+  color: white
+}
+
+.inputContainer input {
+  padding: 0.8rem;
+  border: 0;
+  border-radius: 2px;
+  width: 20rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem
+}
+
+.inputContainer input:focus{
+  outline: none
+}
+
+.inputContainer button {
+  border: 0;
+  background: white;
+  margin: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border-radius: 2px
+}
+
+/*
+media queries
+*/
+@media only screen and (max-width: 768px){
+
+  .Main{
+    margin: 1rem
   }
-  to {
-    transform: rotate(360deg);
+
+  .posterCard{
+    max-width: 50%;
   }
+  .posterCard img{
+    max-height: 30vh
+  }
+
+  .trailerContainer{
+    flex-direction: column
+  }
+
+  .trailerContainer-left{
+    flex: 10;
+    margin-right: 0
+    
+  }
+
+  .trailerContainer-right{
+    flex: auto;
+  }
+
 }
