@@ -27,8 +27,6 @@ export default class PosterArray extends React.Component {
     onResize = () => {
         this.arrayDiv && this.setState({
             outerWidth: this.arrayDiv.clientWidth,
-        }, () => {
-            console.log('resize', this.state.outerWidth, this.state.cardWidth, Math.floor(this.state.outerWidth / this.state.cardWidth))
         })
     }
 
@@ -37,18 +35,14 @@ export default class PosterArray extends React.Component {
     }
 
     captureCardWidth = (width) => {
-        console.log('capture width', width)
         if(width !== this.state.cardWidth) this.setState({cardWidth: width})
     }
 
     showTrailer = (id, index) => {
-        console.log('outer inner', this.state.outerWidth, this.arrayDiv.clientWidth, this.state.cardWidth)
         let numCards = ((this.state.outerWidth || this.arrayDiv.clientWidth) && this.state.cardWidth) && Math.floor((this.state.outerWidth || this.arrayDiv.clientWidth) / this.state.cardWidth)
-        console.log('numCards', numCards)
         if(numCards){
             index = Math.floor(index/numCards) * numCards
         }
-        console.log('index', index)
         this.setState({
             trailerOpen: true,
             selected: {
@@ -74,6 +68,7 @@ export default class PosterArray extends React.Component {
                                             index={i} 
                                             data={p} 
                                             onClick={this.showTrailer}
+                                            getCardWidth={i === 0 && this.captureCardWidth}
                                         />
                             })}
                             <TrailerContainer ref={trailerRef} data={this.state.selectedData} />
@@ -83,6 +78,7 @@ export default class PosterArray extends React.Component {
                                             index={i + top.length}
                                             data={p}
                                             onClick={this.showTrailer} 
+                                            getCardWidth={i === 0 && this.captureCardWidth} 
                                         />
                             })}</>) :  
                             Object.values(posters).map((p, i) => {
@@ -90,7 +86,7 @@ export default class PosterArray extends React.Component {
                                             key={p.EventCode} 
                                             index={i}
                                             data={p} 
-                                            getCardWidth={this.captureCardWidth} 
+                                            getCardWidth={i === 0 && this.captureCardWidth} 
                                             onClick={this.showTrailer} 
                                         />
                             })

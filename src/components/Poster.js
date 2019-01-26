@@ -5,6 +5,15 @@ export default class Poster extends React.Component {
 
     componentDidMount() {
         this.card && this.props.getCardWidth && this.props.getCardWidth(this.card.clientWidth)
+        this.card && this.props.getCardWidth && window.addEventListener("resize", this.onResize)
+    }
+
+    onResize = () => {
+        this.card && this.props.getCardWidth && this.props.getCardWidth(this.card.clientWidth)
+    }
+
+    componentWillMount(){
+        this.props.getCardWidth && window.removeEventListener("resize", this.onResize)
     }
 
     render() {

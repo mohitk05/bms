@@ -16,22 +16,16 @@ export default class Input extends React.Component {
 
     submit = () => {
         let input = this.state.input
-        console.log(input)
         if(!/[^0-9,\s-]/.test(input)){
             let arr = input.replace(/\s+/g, '').split(',')
-            console.log(arr)
             let cleanArr = [...entries], duplicates = []
             arr.forEach(a => {
-                console.log('a', a)
                 if(a.includes('-')){
                     let push = true
                     let start = parseInt(a.split('-')[0])
                     let end = parseInt(a.split('-')[1])
-                    console.log(cleanArr, start, end)
                     cleanArr.slice().forEach((c, i) => {
-                        console.log('c', c)
                         if(typeof c === 'number' && c >= start && c <= end){
-                            console.log('inside if c', c)
                             duplicates.push(cleanArr.splice(cleanArr.findIndex(ca => ca === c), 1)[0])
                         } else if(typeof c === 'string' && c.includes('-')){
                             let start_2 = parseInt(c.split('-')[0])

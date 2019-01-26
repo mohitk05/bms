@@ -17,7 +17,6 @@ class Main extends Component {
         fetch(proxyUrl + 'https://in.bookmyshow.com/serv/getData?cmd=GETTRAILERS&mtype=cs')
             .then(res => res.json())
             .then(res => {
-                console.log(res)
                 this.setState({ posters: res, filteredPosters: res[1], loading: false })
             })
     }
