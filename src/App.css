@@ -20,6 +20,21 @@ body{
   height: -webkit-fill-available;
 }
 
+.verticalLine{
+  height: 60vh;
+  width: 1px;
+  background: #888
+}
+
+.Choose a{
+  text-decoration: none;
+  color: white;
+}
+
+.Choose a:hover{
+  color: tomato
+}
+
 .header{
   font-size: 3rem;
   font-weight: 800;
@@ -178,6 +193,10 @@ body{
   padding: 0.5rem;
   width: 10rem;
   border-radius: 2px
+}
+
+.inputContainer button:focus{
+  outline: none
 }
 
 /*
