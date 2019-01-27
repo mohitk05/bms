@@ -9,7 +9,7 @@ class TrailerContainer extends React.Component {
         return (
             <div ref={this.props.forwardedRef} className="trailerContainer">
                 <div className="trailerContainer-left">
-                    <YouTube id="yt-player"  containerClassName="youtube-container" className="youtube-player" videoId={`${data.TrailerURL.split('?')[1].split('&')[0].split('=')[1]}`}/>
+                    <YouTube id="yt-player"  containerClassName="youtube-container" className="youtube-player" videoId={`${data.TrailerURL.split('?')[1].split('&').find(s => s.split('=')[0] === 'v').split('=')[1]}`}/>
                 </div>
                 <div className="trailerContainer-right">
                     <div>

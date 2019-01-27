@@ -72,13 +72,13 @@ export default class Input extends React.Component {
             <div className="inputContainer">
                 <h2 style={{color: 'white'}}>The Magic Input <span role="img" aria-label="magic">💫</span></h2>
                 <input onChange={this.onChange} onKeyPress={this._handleKeyPress} />
-                {this.state.error && <div style={{color: 'indianred', marginTop: '0.5rem'}}>This doesn't look like what I expected! <span role="img" aria-label="magic">😥</span></div>}
+                {this.state.error && <div style={{color: 'indianred', marginTop: '0.5rem'}}>{`This doesn't look like what I expected!`} <span role="img" aria-label="magic">😥</span></div>}
                 <button onClick={this.submit}>Submit</button>
                 <div>
-                {this.state.cleanArr ? <div><h4 style={{textAlign: 'center'}}>Unique</h4><div className="displayFlex" style={{justifyContent: 'center', flexWrap: 'wrap'}}>{this.state.cleanArr.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
+                    {this.state.cleanArr ? <div><h4 style={{textAlign: 'center'}}>Unique</h4><div className="displayFlex" style={{justifyContent: 'center', flexWrap: 'wrap'}}>{this.state.cleanArr.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
                 </div>
                 <div>
-                {this.state.duplicates ? <div><h4 style={{textAlign: 'center'}}>Duplicates</h4><div className="displayFlex" style={{justifyContent: 'center'}}>{this.state.duplicates.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
+                    {this.state.duplicates ? <div><h4 style={{textAlign: 'center'}}>Duplicates</h4><div className="displayFlex" style={{justifyContent: 'center'}}>{this.state.duplicates.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
                 </div>
             </div>
         )
