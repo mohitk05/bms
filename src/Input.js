@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 
 const entries = [7000,7001,7002,7003,7004,7005]
 export default class Input extends React.Component {
