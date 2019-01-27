@@ -39,6 +39,7 @@ export default class Input extends React.Component {
 
                             let result = findOverlap([start, end], [start_2, end_2])
                             if(result.length){
+                                cleanArr.splice(cleanArr.findIndex(x => x === c), 1)
                                 result[0].forEach(r => cleanArr.push(r))
                                 result[1].forEach(r => duplicates.push(r))
                             }
@@ -61,7 +62,6 @@ export default class Input extends React.Component {
                 }
             })
 
-            console.log(cleanArr, duplicates)
             this.setState({cleanArr, duplicates})
         } else {
             this.setState({error: true})
@@ -76,10 +76,10 @@ export default class Input extends React.Component {
                 {this.state.error && <div style={{color: 'indianred', marginTop: '0.5rem'}}>This doesn't look like what I expected! <span role="img" aria-label="magic">😥</span></div>}
                 <button onClick={this.submit}>Submit</button>
                 <div>
-                {this.state.cleanArr ? <div><h4 style={{textAlign: 'center'}}>Unique</h4><div className="displayFlex" style={{justifyContent: 'center', flexWrap: 'wrap'}}>{this.state.cleanArr.map(a => <span style={{margin: 5}}>{a}</span>)}</div></div> : null}
+                {this.state.cleanArr ? <div><h4 style={{textAlign: 'center'}}>Unique</h4><div className="displayFlex" style={{justifyContent: 'center', flexWrap: 'wrap'}}>{this.state.cleanArr.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
                 </div>
                 <div>
-                {this.state.duplicates ? <div><h4 style={{textAlign: 'center'}}>Duplicates</h4><div className="displayFlex" style={{justifyContent: 'center'}}>{this.state.duplicates.map(a => <span style={{margin: 5}}>{a}</span>)}</div></div> : null}
+                {this.state.duplicates ? <div><h4 style={{textAlign: 'center'}}>Duplicates</h4><div className="displayFlex" style={{justifyContent: 'center'}}>{this.state.duplicates.map(a => <span key={a} style={{margin: 5}}>{a}</span>)}</div></div> : null}
                 </div>
             </div>
         )
@@ -92,6 +92,6 @@ const findOverlap = (a, b) => {
 
     if(left[1] < right[0]) return []
 
-    if(right[0] <= left[1] && left[1] < right[1]) return [[left[1] + 1 === right[1] ? parseInt(right[1]) : `${left[1]+1}-${right[1]}`], []]
-    else if(right[0] <= left[1] && left[1] >= right[1]) return []
+    if(right[0] <= left[1] && left[1] < right[1]) return [[`${left[0]}-${left[1]}`, left[1] + 1 === right[1] ? parseInt(right[1]) : `${left[1]+1}-${right[1]}`], [`${right[0]}-${left[1]}`]]
+    else if(right[0] <= left[1] && left[1] >= right[1]) return [[`${left[0]}-${left[1]}`], [`${right[0]}-${right[1]}`]]
 }
