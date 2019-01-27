@@ -50,7 +50,12 @@ body{
 .posterCard{
   position: relative;
   margin-bottom: 2%;
-  filter: drop-shadow(0 5px 10px #000)
+  filter: drop-shadow(0 5px 10px #000);
+  outline: none
+}
+
+.selected{
+  outline: 3px solid tomato
 }
 
 .posterCard-overlay{
@@ -140,6 +145,10 @@ body{
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-bottom: 0.5rem;
+}
+
+.youtube-container{
+  width: 100%
 }
 
 .youtube-player{

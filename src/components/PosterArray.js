@@ -77,6 +77,7 @@ export default class PosterArray extends React.Component {
                                             key={p.EventCode} 
                                             index={i + top.length}
                                             data={p}
+                                            currentId={this.state.selected.id}
                                             onClick={this.showTrailer} 
                                             getCardWidth={i === 0 && this.captureCardWidth} 
                                         />

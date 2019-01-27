@@ -17,10 +17,10 @@ export default class Poster extends React.Component {
     }
 
     render() {
-        const { data } = this.props
+        const { data, currentId } = this.props
 
         return(
-            <div className="posterCard" ref={r => this.card = r}>
+            <div className={currentId === data.EventCode ? "posterCard selected" : "posterCard"} ref={r => this.card = r}>
                 <img alt="poster" src={IMAGE_BASE_URL.replace(`$$$`, data.EventCode)}/>
                 <div className="posterCard-overlay">
                     <div className="posterCard-overlay-top">

@@ -1,5 +1,6 @@
 import React from 'react'
 import Genre from './Genre'
+import YouTube from 'react-youtube'
 
 class TrailerContainer extends React.Component {
 
@@ -8,7 +9,7 @@ class TrailerContainer extends React.Component {
         return (
             <div ref={this.props.forwardedRef} className="trailerContainer">
                 <div className="trailerContainer-left">
-                    <iframe className="youtube-player" type="text/html" title={data.EventTitle} src={`http://www.youtube.com/embed/${data.TrailerURL.split('?')[1].split('&')[0].split('=')[1]}`}></iframe>
+                    <YouTube id="yt-player"  containerClassName="youtube-container" className="youtube-player" videoId={`${data.TrailerURL.split('?')[1].split('&')[0].split('=')[1]}`}/>
                 </div>
                 <div className="trailerContainer-right">
                     <div>
